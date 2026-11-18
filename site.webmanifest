@@ -1,0 +1,21 @@
+{
+  "name": "WICK",
+  "short_name": "WICK",
+  "description": "The luxury candle house that only pours green candles. Six bougies, each named for a chart pattern. The candles are lore; the token is $WICK on Solana.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F1E8",
+  "theme_color": "#F4F1E8",
+  "icons": [
+    {
+      "src": "images/kit/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/kit/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

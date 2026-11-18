@@ -1,0 +1,81 @@
+/* Grove: warm dusk gold, honey and blossom. Pairs with the 3D grove world. */
+[data-theme="grove"] {
+  --bg: #0f0a06;
+  --bg-2: #18100a;
+  --surface: rgba(255, 190, 110, 0.05);
+  --surface-2: rgba(255, 190, 110, 0.1);
+  --line: rgba(255, 200, 130, 0.13);
+  --line-2: rgba(255, 200, 130, 0.28);
+  --fg: #fff4e2;
+  --fg-2: #d8bf9b;
+  --fg-3: #917b5d;
+  --accent: #ffb547;
+  --accent-2: #ff6b8b;
+  --accent-fg: #1a0f02;
+  --up: #9be15d;
+  --down: #ff5e57;
+  --glow: rgba(255, 181, 71, 0.5);
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --display-weight: 900;
+  --display-tracking: -0.02em;
+  --display-leading: 0.92;
+  --display-case: uppercase;
+  --char-w: 0.9;
+  --radius: 20px;
+  --btn-bg: linear-gradient(180deg, #ffd27a, #ffb547 60%, #f09a2a);
+  --btn-glow: 0 0 0 1px rgba(255, 181, 71, 0.4), 0 12px 44px -10px rgba(255, 170, 60, 0.6);
+  --card-bg: linear-gradient(180deg, rgba(40, 24, 12, 0.72), rgba(24, 14, 8, 0.72));
+  --marquee-bg: #ffb547;
+  --marquee-fg: #1a0f02;
+  --nav-bg: rgba(15, 10, 6, 0.78);
+  --grain: 0.06;
+}
+[data-theme="grove"] body {
+  background:
+    radial-gradient(1200px 700px at 50% -10%, rgba(255, 140, 60, 0.16), transparent 60%),
+    radial-gradient(900px 600px at 100% 100%, rgba(255, 107, 139, 0.08), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-theme="grove"] .hero__title,
+[data-theme="grove"] .loader__name {
+  letter-spacing: 0.02em;
+}
+[data-theme="grove"] .hero__title {
+  color: #ffd27a;
+  text-shadow: 0 0 50px rgba(255, 170, 60, 0.45);
+}
+[data-theme="grove"] .step__n {
+  -webkit-text-stroke-color: var(--accent);
+}
+[data-theme="grove"] [data-tone="invert"] {
+  --bg: #fff4e2;
+  --fg: #1a0f02;
+  --fg-2: #6b5234;
+  --fg-3: #806d52;
+  --accent: #9e5e00;
+  --accent-fg: #fff4e2;
+  --glow: rgba(158, 94, 0, 0.25);
+  --line: rgba(26, 15, 2, 0.14);
+  --surface: rgba(26, 15, 2, 0.04);
+  --surface-2: rgba(26, 15, 2, 0.08);
+  --card-bg: #ffffff;
+}
+[data-theme="grove"] [data-tone="accent"] {
+  --bg: #ffb547;
+  --fg: #1a0f02;
+  --fg-2: #4a3210;
+  --accent: #1a0f02;
+  --btn-bg: #1a0f02;
+  --btn-fg: #ffb547;
+  --fg-3: #5c4e3b;
+  --accent-fg: #ffb547;
+  --card-bg: rgba(255, 255, 255, 0.3);
+}
+/* The golden hero headline is for the dark page; toned bands use their own ink. */
+[data-theme="grove"] [data-tone] .hero__title {
+  color: var(--fg);
+  text-shadow: none;
+}

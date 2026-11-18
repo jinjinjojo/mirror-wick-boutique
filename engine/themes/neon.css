@@ -1,0 +1,105 @@
+/* Neon: cyberpunk teal and magenta, gradient borders, aurora sky. */
+[data-theme="neon"] {
+  --bg: #04060f;
+  --bg-2: #070b1a;
+  --surface: rgba(80, 220, 255, 0.05);
+  --surface-2: rgba(80, 220, 255, 0.1);
+  --line: rgba(120, 220, 255, 0.14);
+  --line-2: rgba(120, 220, 255, 0.3);
+  --fg: #eaf6ff;
+  --fg-2: #9fb3cc;
+  --fg-3: #66789a;
+  --accent: #19f5d0;
+  --accent-2: #ff3cac;
+  --accent-fg: #03121a;
+  --up: #19f5a0;
+  --down: #ff4d7d;
+  --glow: rgba(25, 245, 208, 0.45);
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --display-weight: 800;
+  --display-tracking: -0.03em;
+  --display-leading: 0.95;
+  --display-case: uppercase;
+  --char-w: 0.9;
+  --radius: 22px;
+  --btn-bg: linear-gradient(120deg, #19f5d0, #6aa8ff 50%, #ff3cac);
+  --btn-fg: #03121a;
+  --btn-glow: 0 0 30px -4px rgba(25, 245, 208, 0.55), 0 0 60px -20px rgba(255, 60, 172, 0.6);
+  --card-bg: linear-gradient(rgba(7, 11, 26, 0.78), rgba(7, 11, 26, 0.78)) padding-box, linear-gradient(135deg, rgba(25, 245, 208, 0.45), rgba(255, 60, 172, 0.45)) border-box;
+  --marquee-bg: linear-gradient(90deg, #19f5d0, #ff3cac);
+  --marquee-fg: #03121a;
+  --grain: 0.05;
+}
+[data-theme="neon"] .card,
+[data-theme="neon"] .stats__grid,
+[data-theme="neon"] .chart-frame,
+[data-theme="neon"] .chart-skeleton,
+[data-theme="neon"] .faq__item,
+[data-theme="neon"] .maker__panel {
+  border-color: transparent;
+  background: var(--card-bg);
+}
+[data-theme="neon"] .hero__title .split-c,
+[data-theme="neon"] .hero__title:not(.is-split),
+[data-theme="neon"] .sec__title .split-w > span,
+[data-theme="neon"] .sec__title:not(.is-split) {
+  background: linear-gradient(100deg, #eaffff 10%, #19f5d0 45%, #ff3cac 90%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-theme="neon"] .hero__title {
+  filter: drop-shadow(0 0 30px rgba(25, 245, 208, 0.35));
+}
+[data-theme="neon"] .eyebrow {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--glow);
+}
+[data-theme="neon"] [data-tone="invert"] {
+  --bg: #eaf6ff;
+  --fg: #04060f;
+  --fg-2: #3a4a66;
+  --fg-3: #61708a;
+  --line: rgba(4, 6, 15, 0.12);
+  --line-2: rgba(4, 6, 15, 0.25);
+  --surface: rgba(4, 6, 15, 0.04);
+  --surface-2: rgba(4, 6, 15, 0.08);
+  --card-bg: #ffffff;
+  --accent: #057c68;
+  --accent-fg: #ffffff;
+  --glow: rgba(5, 124, 104, 0.25);
+}
+[data-theme="neon"] [data-tone="accent"] {
+  --bg: linear-gradient(120deg, #19f5d0, #ff3cac);
+  --fg: #03121a;
+  --fg-2: #0d2a3d;
+  --fg-3: #112a37;
+  --line: rgba(3, 18, 26, 0.2);
+  --line-2: rgba(3, 18, 26, 0.35);
+  --surface: rgba(255, 255, 255, 0.2);
+  --surface-2: rgba(255, 255, 255, 0.3);
+  --accent: #03121a;
+  --accent-fg: #19f5d0;
+  --btn-bg: #03121a;
+  --btn-fg: #19f5d0;
+  --card-bg: rgba(255, 255, 255, 0.4);
+  --glow: rgba(3, 18, 26, 0.25);
+}
+
+/* Gradient headlines on toned sections: dark ink on the light band, plain ink on the neon band. */
+[data-theme="neon"] [data-tone="invert"] .hero__title .split-c,
+[data-theme="neon"] [data-tone="invert"] .hero__title:not(.is-split),
+[data-theme="neon"] [data-tone="invert"] .sec__title .split-w > span,
+[data-theme="neon"] [data-tone="invert"] .sec__title:not(.is-split) {
+  background-image: linear-gradient(100deg, #04060f 10%, #057c68 45%, #b3006f 90%);
+}
+[data-theme="neon"] [data-tone="accent"] .hero__title .split-c,
+[data-theme="neon"] [data-tone="accent"] .hero__title:not(.is-split),
+[data-theme="neon"] [data-tone="accent"] .sec__title .split-w > span,
+[data-theme="neon"] [data-tone="accent"] .sec__title:not(.is-split) {
+  background: none;
+  color: var(--fg);
+}

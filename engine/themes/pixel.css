@@ -1,0 +1,125 @@
+/* Pixel: retro arcade on warm grey. Hard shadows, square corners, scanlines. */
+[data-theme="pixel"] {
+  --bg: #d9d4c5;
+  --bg-2: #cec8b6;
+  --surface: #e8e3d5;
+  --surface-2: #f2eee2;
+  --line: #1c1b18;
+  --line-2: #1c1b18;
+  --fg: #1c1b18;
+  --fg-2: #45423a;
+  --fg-3: #5f5b52;
+  --accent: #1c1b18;
+  --accent-2: #e8452c;
+  --accent-fg: #f3efe3;
+  --accent-soft: rgba(28, 27, 24, 0.08);
+  --up: #2f8f3a;
+  --down: #c9331f;
+  --glow: rgba(0, 0, 0, 0);
+  --font-display: "Press Start 2P", "Courier New", monospace;
+  --font-body: "Space Mono", ui-monospace, monospace;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --display-weight: 400;
+  --display-tracking: 0;
+  --display-leading: 1.2;
+  --display-case: uppercase;
+  --char-w: 1.02;
+  --display-scale: 0.52;
+  --eyebrow-font: "Space Mono", monospace;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-btn: 0px;
+  --border-w: 3px;
+  --shadow: 6px 6px 0 #1c1b18;
+  --shadow-hover: 9px 9px 0 #1c1b18;
+  --shadow-btn: 4px 4px 0 #1c1b18;
+  --btn-glow: 0 0 0 0 transparent;
+  --btn-bg: #1c1b18;
+  --btn-fg: #f3efe3;
+  --card-bg: #e8e3d5;
+  --blur: 0px;
+  --marquee-bg: #1c1b18;
+  --marquee-fg: #e8e3d5;
+  --nav-bg: rgba(217, 212, 197, 0.94);
+  --grain: 0.04;
+}
+[data-theme="pixel"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 61;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.035) 0 1px, transparent 1px 3px);
+}
+[data-theme="pixel"] .btn:not(.btn--soon):active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #1c1b18;
+}
+[data-theme="pixel"] .btn--primary:hover {
+  box-shadow: 6px 6px 0 var(--accent-2);
+}
+[data-theme="pixel"] .btn--primary::after {
+  display: none;
+}
+[data-theme="pixel"] .card:hover {
+  transform: translate(-3px, -3px);
+}
+[data-theme="pixel"] [data-tilt] {
+  transform: none;
+}
+[data-theme="pixel"] .card[data-tilt]:hover {
+  transform: translate(-3px, -3px);
+}
+[data-theme="pixel"] .hero__title {
+  line-height: 1.15;
+  text-shadow: 5px 5px 0 rgba(28, 27, 24, 0.18);
+}
+[data-theme="pixel"] .marquee {
+  transform: none;
+  border-width: 3px 0;
+}
+[data-theme="pixel"] .stat__value,
+[data-theme="pixel"] .fact dd,
+[data-theme="pixel"] .card__title,
+[data-theme="pixel"] .phase__title,
+[data-theme="pixel"] .community__name,
+[data-theme="pixel"] .nav__name,
+[data-theme="pixel"] .footer__logo,
+[data-theme="pixel"] .chart-skeleton__title {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+[data-theme="pixel"] .step__n {
+  -webkit-text-stroke: 0;
+  color: var(--accent-2);
+  font-size: 1.6rem;
+}
+[data-theme="pixel"] .live-dot,
+[data-theme="pixel"] .ca__dot {
+  border-radius: 0;
+}
+[data-theme="pixel"] [data-tone="invert"] {
+  --bg: #1c1b18;
+  --bg-2: #25231f;
+  --surface: #2a2823;
+  --surface-2: #34312b;
+  --line: #e8e3d5;
+  --line-2: #e8e3d5;
+  --fg: #e8e3d5;
+  --fg-2: #bdb7a6;
+  --fg-3: #8f8a7b;
+  --accent: #e8e3d5;
+  --accent-fg: #1c1b18;
+  --btn-bg: #e8e3d5;
+  --btn-fg: #1c1b18;
+  --card-bg: #2a2823;
+  --shadow: 6px 6px 0 #e8452c;
+  --shadow-btn: 4px 4px 0 #e8452c;
+}
+[data-theme="pixel"] [data-tone="accent"] {
+  --bg: #ea513a;
+  --fg: #1c1b18;
+  --fg-2: #2b1510;
+  --fg-3: #2e1710;
+  --card-bg: #f3efe3;
+}

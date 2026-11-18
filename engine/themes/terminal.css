@@ -1,0 +1,106 @@
+/* Terminal: phosphor green on black, monospace everything, code rain, blinking cursor. */
+[data-theme="terminal"] {
+  --bg: #020803;
+  --bg-2: #041107;
+  --surface: rgba(61, 255, 110, 0.04);
+  --surface-2: rgba(61, 255, 110, 0.09);
+  --line: rgba(61, 255, 110, 0.2);
+  --line-2: rgba(61, 255, 110, 0.4);
+  --fg: #c9ffd3;
+  --fg-2: #7fd192;
+  --fg-3: #4f8a5a;
+  --accent: #3dff6e;
+  --accent-2: #00e0ff;
+  --accent-fg: #021004;
+  --up: #3dff6e;
+  --down: #ff5f56;
+  --glow: rgba(61, 255, 110, 0.45);
+  --font-display: "VT323", ui-monospace, monospace;
+  --font-body: "IBM Plex Mono", ui-monospace, monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --display-weight: 400;
+  --display-tracking: 0;
+  --display-leading: 0.9;
+  --display-case: uppercase;
+  --char-w: 0.52;
+  --display-scale: 1.25;
+  --radius: 4px;
+  --radius-sm: 2px;
+  --radius-btn: 2px;
+  --btn-glow: 0 0 24px -4px rgba(61, 255, 110, 0.6);
+  --card-bg: rgba(2, 8, 3, 0.78);
+  --marquee-bg: #3dff6e;
+  --marquee-fg: #021004;
+  --nav-bg: rgba(2, 8, 3, 0.86);
+  --grain: 0.06;
+}
+[data-theme="terminal"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 61;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0 1px, transparent 1px 3px);
+  animation: crt-flicker 6s infinite;
+}
+@keyframes crt-flicker {
+  97% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0.7;
+  }
+}
+[data-theme="terminal"] .display,
+[data-theme="terminal"] .hero__title {
+  text-shadow: 0 0 14px rgba(61, 255, 110, 0.6);
+}
+[data-theme="terminal"] .sec__title::after,
+[data-theme="terminal"] .hero__title::after {
+  content: "_";
+  animation: blink 1s steps(2) infinite;
+}
+[data-theme="terminal"] .eyebrow::before {
+  content: ">";
+  width: auto;
+  height: auto;
+  background: none;
+  opacity: 1;
+}
+[data-theme="terminal"] .card,
+[data-theme="terminal"] .faq__item {
+  border-style: dashed;
+}
+[data-theme="terminal"] .step__n {
+  -webkit-text-stroke: 0;
+  color: var(--accent);
+}
+[data-theme="terminal"] [data-tone="invert"] {
+  --bg: #3dff6e;
+  --fg: #021004;
+  --fg-2: #0f3d19;
+  --fg-3: #1d5a2b;
+  --line: rgba(2, 16, 4, 0.3);
+  --accent: #021004;
+  --accent-fg: #3dff6e;
+  --btn-bg: #021004;
+  --btn-fg: #3dff6e;
+  --card-bg: rgba(255, 255, 255, 0.2);
+}
+/* The accent band is an amber phosphor screen. */
+[data-theme="terminal"] [data-tone="accent"] {
+  --bg: #ffb000;
+  --fg: #1a0f00;
+  --fg-2: #3d2600;
+  --fg-3: #4a2f00;
+  --line: rgba(26, 15, 0, 0.3);
+  --line-2: rgba(26, 15, 0, 0.5);
+  --surface: rgba(26, 15, 0, 0.06);
+  --surface-2: rgba(26, 15, 0, 0.12);
+  --accent: #1a0f00;
+  --accent-fg: #ffb000;
+  --btn-bg: #1a0f00;
+  --btn-fg: #ffb000;
+  --card-bg: rgba(255, 255, 255, 0.2);
+  --glow: rgba(26, 15, 0, 0.2);
+}

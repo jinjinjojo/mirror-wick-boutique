@@ -1,0 +1,1001 @@
+/* Luxe: an ivory catalogue with forest campaign sections, Didone type and brass hairlines. WICK's look.
+   Brass (#C8A96A) is for hairlines and for text on forest; small brass text on ivory uses #7A6132.
+   Ivory leads, forest frames the photography, brass draws the lines: no glows, no decorative gradients.
+   Section tones: tone "invert" is a forest band. The contract box of How to buy, the pre-launch chart and the
+   footer are forest plates too. */
+
+[data-theme="luxe"] {
+  --bg: #f4f1e8;
+  --bg-2: #ece7da;
+  --surface: #fbf9f3;
+  --surface-2: #ffffff;
+  --line: rgba(14, 20, 16, 0.13);
+  --line-2: rgba(14, 20, 16, 0.3);
+  --fg: #0e1410;
+  --fg-2: #5c6159;
+  --fg-3: #6a6f67;
+  --accent: #7a6132;
+  --accent-2: #c8a96a;
+  --accent-fg: #f4f1e8;
+  --accent-soft: rgba(200, 169, 106, 0.18);
+  --up: #1f9d62;
+  --down: #b3412f;
+  --glow: transparent;
+  --font-display: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
+  --font-body: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.012em;
+  --display-leading: 1;
+  --display-case: none;
+  --char-w: 0.56;
+  --eyebrow-font: "Jost", sans-serif;
+  --eyebrow-tracking: 0.22em;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-btn: 0px;
+  --shadow: none;
+  --shadow-hover: 0 30px 60px -40px rgba(14, 20, 16, 0.4);
+  --btn-bg: #0e1410;
+  --btn-fg: #f4f1e8;
+  --btn-glow: 0 0 0 0 transparent;
+  --card-bg: #fbf9f3;
+  --blur: 0px;
+  --marquee-bg: #0e1410;
+  --marquee-fg: #c8a96a;
+  --nav-bg: rgba(244, 241, 232, 0.96);
+  --grain: 0.05;
+  --sec-y: clamp(88px, 10vw, 168px);
+  --maxw: 1448px; /* 1320px of content inside the gutters, like a printed page */
+  --gutter: clamp(16px, 4.2vw, 64px);
+  --col-gap: clamp(16px, 2vw, 32px);
+  --rise: clamp(40px, 6vw, 104px); /* the staircase step of the product grid */
+}
+
+/* Forest: the inverted tone and the forest plates share one palette. */
+[data-theme="luxe"] [data-tone="invert"],
+[data-theme="luxe"] .how__cta,
+[data-theme="luxe"] .chart-skeleton,
+[data-theme="luxe"] .footer {
+  --bg: #0e1410;
+  --bg-2: #141c17;
+  --surface: rgba(244, 241, 232, 0.04);
+  --surface-2: rgba(244, 241, 232, 0.08);
+  --line: rgba(200, 169, 106, 0.32);
+  --line-2: rgba(200, 169, 106, 0.55);
+  --fg: #f4f1e8;
+  --fg-2: #cbc9c0;
+  --fg-3: #8a8f86;
+  --accent: #c8a96a;
+  --accent-fg: #0e1410;
+  --btn-bg: #f4f1e8;
+  --btn-fg: #0e1410;
+  --card-bg: rgba(244, 241, 232, 0.03);
+  --up: #3fd08a;
+}
+[data-theme="luxe"] .how__cta,
+[data-theme="luxe"] .chart-skeleton,
+[data-theme="luxe"] .footer {
+  background: var(--bg);
+  color: var(--fg);
+}
+/* A toned band is its own stacking context, so a hero background image (z-index -1) sits on the band, not under it. */
+[data-theme="luxe"] [data-tone] {
+  isolation: isolate;
+}
+/* Two forest bands in a row read as one. */
+[data-theme="luxe"] [data-tone="invert"] + [data-tone="invert"] {
+  padding-top: 0;
+}
+[data-theme="luxe"] [data-tone="accent"] {
+  --bg: #c8a96a;
+  --fg: #0e1410;
+  --fg-2: #2c2a20;
+  --fg-3: #3e403c;
+  --accent: #0e1410;
+  --card-bg: rgba(244, 241, 232, 0.35);
+}
+
+/* ---------- type, buttons, small parts ---------- */
+[data-theme="luxe"] body {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+[data-theme="luxe"] ::selection {
+  background: #3fd08a;
+  color: #0e1410;
+}
+[data-theme="luxe"] .display em,
+[data-theme="luxe"] .hero__title em,
+[data-theme="luxe"] .sec__title em {
+  font-style: italic;
+  font-weight: 400;
+}
+[data-theme="luxe"] .eyebrow {
+  gap: 14px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+[data-theme="luxe"] .eyebrow::before {
+  width: 36px;
+  opacity: 1;
+}
+[data-theme="luxe"] .split-c {
+  filter: none;
+  transform: translate3d(0, 0.3em, 0);
+  transition: opacity 0.9s var(--ease), transform 1.1s var(--ease);
+}
+[data-theme="luxe"] .btn {
+  min-height: 54px;
+  padding-inline: 30px;
+  font: 500 0.8125rem/1 var(--font-body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+[data-theme="luxe"] .btn--sm {
+  min-height: 42px;
+  padding-inline: 18px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+}
+[data-theme="luxe"] .btn--chip {
+  min-height: 40px;
+  padding-inline: 16px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+}
+[data-theme="luxe"] .btn--primary:hover {
+  background: #1f9d62;
+  color: #0e1410;
+  box-shadow: none;
+}
+[data-theme="luxe"] .btn--primary::after {
+  display: none;
+}
+[data-theme="luxe"] .btn--ghost {
+  background: transparent;
+  border-color: var(--line-2);
+}
+[data-theme="luxe"] .btn--ghost:hover {
+  border-color: var(--accent-2);
+  background: transparent;
+}
+[data-theme="luxe"] .btn__soon {
+  border-radius: 0;
+  background: var(--accent-2);
+  color: #0e1410;
+}
+[data-theme="luxe"] [data-tone="invert"] .btn--primary:hover,
+[data-theme="luxe"] .how__cta .btn--primary:hover {
+  background: #3fd08a;
+  color: #0e1410;
+}
+[data-theme="luxe"] .card:hover {
+  border-color: var(--accent-2);
+}
+[data-theme="luxe"] .card__title,
+[data-theme="luxe"] .phase__title,
+[data-theme="luxe"] .community__name {
+  font-weight: 500;
+}
+[data-theme="luxe"] .card__number {
+  color: var(--accent);
+}
+[data-theme="luxe"] .ca {
+  border-radius: 0;
+}
+[data-theme="luxe"] .ca__copy {
+  border-radius: 0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+[data-theme="luxe"] .ca--soon .ca__value {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+[data-theme="luxe"] .social,
+[data-theme="luxe"] .round-btn,
+[data-theme="luxe"] .nav__burger,
+[data-theme="luxe"] .countdown {
+  border-radius: 0;
+}
+[data-theme="luxe"] .loader__name {
+  text-shadow: none;
+}
+[data-theme="luxe"] .loader__mark img,
+[data-theme="luxe"] .progress {
+  filter: none;
+  box-shadow: none;
+}
+
+/* ---------- nav: a masthead, links left, the wordmark centred ---------- */
+[data-theme="luxe"] .nav,
+[data-theme="luxe"] .nav.is-scrolled,
+[data-theme="luxe"] .nav.is-open {
+  background: var(--nav-bg);
+  border-bottom-color: var(--accent-2);
+}
+[data-theme="luxe"] .nav__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  column-gap: 16px;
+  height: 88px;
+}
+[data-theme="luxe"] .nav__brand {
+  grid-area: 1 / 2;
+  justify-self: center;
+}
+[data-theme="luxe"] .nav__links {
+  grid-area: 1 / 1;
+  justify-self: start;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  backdrop-filter: none;
+}
+[data-theme="luxe"] .nav__actions {
+  grid-area: 1 / 3;
+  justify-self: end;
+  margin: 0;
+}
+[data-theme="luxe"] .nav__name {
+  padding-left: 0.32em;
+  font-size: clamp(1.625rem, 1.2rem + 1.1vw, 2.25rem);
+  letter-spacing: 0.32em;
+}
+[data-theme="luxe"] .nav__links a {
+  padding: 12px 0;
+  border-radius: 0;
+  background: none;
+  color: var(--fg);
+  font: 500 0.75rem/1 var(--font-body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color 0.25s;
+}
+[data-theme="luxe"] .nav__links a + a {
+  margin-left: 26px;
+}
+[data-theme="luxe"] .nav__links a + a::before {
+  content: "·";
+  position: absolute;
+  left: -16px;
+  color: var(--accent-2);
+  text-decoration: none;
+}
+[data-theme="luxe"] .nav__links a:hover,
+[data-theme="luxe"] .nav__links a.is-active {
+  background: none;
+  text-decoration-color: var(--accent-2);
+}
+[data-theme="luxe"] .nav__links a.is-active::after {
+  display: none;
+}
+/* The links need the full width beside the centred wordmark; below that they move into the menu. */
+@media (max-width: 1319.98px) {
+  [data-theme="luxe"] .nav__links {
+    display: none;
+  }
+  [data-theme="luxe"] .nav__burger {
+    display: grid;
+  }
+}
+/* Tablets and phones: the wordmark moves left so the Buy button and the menu always fit beside it. */
+@media (max-width: 1080px) {
+  [data-theme="luxe"] .nav__inner {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  [data-theme="luxe"] .nav__brand {
+    grid-area: 1 / 1;
+    justify-self: start;
+  }
+  [data-theme="luxe"] .nav__actions {
+    grid-area: 1 / 2;
+  }
+}
+@media (max-width: 640px) {
+  [data-theme="luxe"] .nav__inner {
+    height: 64px;
+  }
+  [data-theme="luxe"] .nav__name {
+    padding-left: 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+  }
+}
+
+/* ---------- hero: the campaign photograph, copy in its dark left side ---------- */
+[data-theme="luxe"] .hero__eyebrow {
+  padding: 0;
+  border: 0;
+  background: none;
+  backdrop-filter: none;
+  color: var(--accent);
+}
+[data-theme="luxe"] .hero__eyebrow::before {
+  display: block;
+}
+[data-theme="luxe"] .hero__eyebrow .live-dot {
+  display: none;
+}
+[data-theme="luxe"] .hero__title {
+  font-size: min(clamp(3.5rem, 1.1rem + 7.2vw, 7.5rem), var(--title-fit));
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+[data-theme="luxe"] .hero__text {
+  max-width: 40ch;
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  line-height: 1.5;
+}
+[data-theme="luxe"] .hero__scroll,
+[data-theme="luxe"] .hero__orb {
+  display: none;
+}
+[data-theme="luxe"] .hero--poster {
+  align-items: center;
+  min-height: clamp(560px, 46vw, 940px);
+  padding-block: clamp(40px, 4vw, 72px);
+}
+[data-theme="luxe"] .hero--poster .hero__inner {
+  grid-template-columns: minmax(0, 40rem);
+}
+[data-theme="luxe"] .hero--poster .hero__bg {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+[data-theme="luxe"] .hero--poster .hero__bg img {
+  opacity: 1;
+  object-position: 100% 50%;
+  transform: none;
+  animation: luxe-lights-up 2.4s var(--ease) both, luxe-candlelight 7s ease-in-out 2.4s infinite;
+}
+[data-theme="luxe"] .hero--poster .hero__bg::after {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 55%, transparent), transparent 50%);
+}
+@media (min-width: 1200px) {
+  [data-theme="luxe"] .hero--poster .hero__title {
+    font-size: min(7.3vw, 8rem, var(--title-fit));
+  }
+  [data-theme="luxe"] .hero--poster .hero__text,
+  [data-theme="luxe"] .hero--poster .hero__meta {
+    max-width: min(34rem, 38vw);
+  }
+}
+/* Narrower screens: the photograph sits above the copy, cropped to the candles, instead of behind it. */
+@media (max-width: 1199.98px) {
+  [data-theme="luxe"] .hero--poster {
+    display: block;
+    min-height: 0;
+    padding-top: 0;
+  }
+  [data-theme="luxe"] .hero--poster .hero__bg {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    height: min(72.5vw, 72svh); /* the candles' crop of the photograph, never taller than most of the screen */
+    overflow: hidden;
+  }
+  [data-theme="luxe"] .hero--poster .hero__bg::after {
+    background: linear-gradient(to top, var(--bg), transparent 22%);
+  }
+  [data-theme="luxe"] .hero--poster .hero__inner {
+    padding-top: 36px;
+  }
+}
+@keyframes luxe-lights-up {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* A slow, irregular candlelight flicker across the photograph. */
+@keyframes luxe-candlelight {
+  0%,
+  35%,
+  86%,
+  100% {
+    opacity: 1;
+  }
+  9% {
+    opacity: 0.955;
+  }
+  14% {
+    opacity: 0.99;
+  }
+  23% {
+    opacity: 0.945;
+  }
+  48% {
+    opacity: 0.965;
+  }
+  53% {
+    opacity: 0.93;
+  }
+  60% {
+    opacity: 0.985;
+  }
+  72% {
+    opacity: 0.955;
+  }
+  93% {
+    opacity: 0.97;
+  }
+}
+
+/* ---------- marquee ---------- */
+[data-theme="luxe"] .marquee {
+  transform: none;
+  margin-block: 0;
+  border-color: rgba(200, 169, 106, 0.32);
+}
+[data-theme="luxe"] .marquee__item {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+[data-theme="luxe"] .marquee__sep img {
+  border-radius: 0;
+}
+
+/* ---------- section heads: eyebrow, then the title left and the intro right, like a catalogue spread ---------- */
+[data-theme="luxe"] .sec__title {
+  font-size: clamp(2.75rem, 1.5rem + 4.6vw, 6.25rem);
+}
+[data-theme="luxe"] .sec__text {
+  max-width: 36ch;
+  color: var(--fg);
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+[data-theme="luxe"] .sec__head--center .sec__text {
+  max-width: 52ch;
+}
+[data-theme="luxe"] .sec > .container > .sec__head:not(.sec__head--center) {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: 22px;
+  align-items: end;
+  max-width: none;
+  margin-bottom: clamp(56px, 7vw, 112px);
+}
+[data-theme="luxe"] .sec > .container > .sec__head:not(.sec__head--center) > * {
+  grid-column: 1 / -1;
+}
+@media (min-width: 900px) {
+  [data-theme="luxe"] .sec > .container > .sec__head:not(.sec__head--center) > .sec__title {
+    grid-column: 1 / span 7;
+  }
+  [data-theme="luxe"] .sec > .container > .sec__head:not(.sec__head--center) > .sec__text {
+    grid-column: 9 / -1;
+    padding-bottom: 0.5em;
+  }
+}
+/* A thin brass rule between two ivory sections. */
+[data-theme="luxe"] .sec:not([data-tone]) + .sec:not([data-tone])::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(100% - 2 * var(--gutter), var(--maxw) - 2 * var(--gutter));
+  height: 1px;
+  background: var(--accent-2);
+  transform: translateX(-50%);
+}
+
+/* ---------- spec lines: a paragraph whose lines start with a **Label** reads as a catalogue sheet ---------- */
+/* The label leaves the line (so the space after it collapses) and hangs in the left column. */
+[data-theme="luxe"] :is(.card--product .card__text, .lore__text) p:has(> strong:first-child) {
+  position: relative;
+  padding-left: 7.25rem;
+  color: var(--fg);
+}
+[data-theme="luxe"] :is(.card--product .card__text, .lore__text) p:has(> strong:first-child) > strong {
+  position: absolute;
+  left: 0;
+  width: 6.25rem;
+  margin-top: 0.4em;
+  color: var(--accent);
+  font: 500 0.6875rem/1.6 var(--font-body);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+[data-theme="luxe"] :is(.card--product .card__text, .lore__text) em {
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-style: italic;
+}
+
+/* ---------- cards: the product style is a catalogue page (plate, edition line, name, notes, burn time) ---------- */
+[data-theme="luxe"] .cards--product .cards__grid {
+  align-items: start;
+  column-gap: clamp(20px, 3.2vw, 56px);
+  row-gap: clamp(72px, 8vw, 128px);
+}
+[data-theme="luxe"] .card--product {
+  --rx: 0deg !important;
+  --ry: 0deg !important;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+[data-theme="luxe"] .card--product:hover {
+  box-shadow: none;
+}
+[data-theme="luxe"] .card--product[data-tilt]::after {
+  display: none;
+}
+[data-theme="luxe"] .card--product .card__media {
+  border: 0;
+  background: #0e1410;
+}
+[data-theme="luxe"] .card--product .card__body {
+  gap: 0;
+  padding: 22px 0 0;
+}
+[data-theme="luxe"] .card--product .card__meta {
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--accent-2);
+}
+[data-theme="luxe"] .card--product .card__number {
+  font: 500 0.75rem/1 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+[data-theme="luxe"] .card--product .card__tag {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--fg-2);
+  font: 500 0.6875rem/1 var(--font-body);
+  letter-spacing: 0.2em;
+}
+[data-theme="luxe"] .card--product .card__title {
+  margin-top: 18px;
+  font-size: clamp(2rem, 1.55rem + 1.1vw, 2.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+[data-theme="luxe"] .card--product .card__text {
+  margin-top: 12px;
+  color: var(--fg-2);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+[data-theme="luxe"] .card--product .card__text p + p {
+  margin-top: 22px;
+}
+/* The last spec line (a label, no italic note) is the burn time: set in mono under a hairline. */
+[data-theme="luxe"] .card--product .card__text p:has(> strong:first-child):not(:has(> em)) {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font: 400 0.8125rem/1.55 var(--font-mono);
+}
+/* ==highlight== in a product card is a stamp, e.g. "Épuisé · Sold out in one block". */
+[data-theme="luxe"] .card--product .card__text mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--fg);
+  color: var(--bg);
+  font: 500 0.6875rem/1 var(--font-body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+[data-theme="luxe"] .card--product .card__text mark em {
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+/* The staircase: each row of three steps up from left to right, like the candles in the hero. */
+@media (min-width: 1081px) {
+  [data-theme="luxe"] .cards--product .cards__grid[style*="--cols:3"] > :nth-child(3n + 1) {
+    margin-top: calc(var(--rise) * 2);
+  }
+  [data-theme="luxe"] .cards--product .cards__grid[style*="--cols:3"] > :nth-child(3n + 2) {
+    margin-top: var(--rise);
+  }
+}
+@media (min-width: 641px) and (max-width: 1080px) {
+  [data-theme="luxe"] .cards--product .cards__grid > :nth-child(odd) {
+    margin-top: var(--rise);
+  }
+}
+
+/* ---------- lore: image in five columns, the story in six ---------- */
+[data-theme="luxe"] .lore__grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: 48px;
+}
+[data-theme="luxe"] .lore__art {
+  grid-column: 1 / span 5;
+  overflow: visible;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+[data-theme="luxe"] .lore__copy {
+  grid-column: 7 / span 6;
+}
+[data-theme="luxe"] .lore--image-right .lore__art {
+  grid-column: 8 / span 5;
+}
+[data-theme="luxe"] .lore--image-right .lore__copy {
+  grid-column: 1 / span 6;
+}
+[data-theme="luxe"] .lore--text .lore__copy {
+  grid-column: 1 / span 8;
+}
+[data-theme="luxe"] .lore__art img {
+  width: min(100%, 420px);
+  margin-inline: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+[data-theme="luxe"] .lore__art:hover img {
+  transform: none;
+}
+[data-theme="luxe"] .lore__quote {
+  position: static;
+  margin-top: 12px;
+  padding: 0;
+  background: none;
+  backdrop-filter: none;
+  color: var(--fg-3);
+  font: 500 0.6875rem/1.5 var(--font-body);
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+[data-theme="luxe"] .lore__copy .sec__head {
+  margin-bottom: 30px;
+}
+[data-theme="luxe"] .lore__copy .sec__title {
+  font-size: clamp(2.75rem, 1.5rem + 4.6vw, 6.25rem);
+}
+[data-theme="luxe"] .lore__text {
+  color: var(--fg-2);
+  font-size: 1.0625rem;
+}
+[data-theme="luxe"] .lore__text p:has(> strong:first-child) {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  line-height: 1.9;
+}
+[data-theme="luxe"] .lore__text p:has(> strong:first-child) > strong {
+  margin-top: 0.85em;
+}
+[data-theme="luxe"] .lore__pull {
+  border-left-color: var(--accent-2);
+  font-style: italic;
+  font-weight: 400;
+}
+@media (max-width: 899.98px) {
+  [data-theme="luxe"] .lore__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-theme="luxe"] .lore__grid > .lore__art,
+  [data-theme="luxe"] .lore__grid > .lore__copy {
+    grid-column: 1 / -1;
+  }
+  [data-theme="luxe"] .lore__art {
+    order: 2;
+  }
+  [data-theme="luxe"] .lore__art img {
+    width: min(64%, 280px);
+  }
+}
+
+/* ---------- custom sections: a blockquote is the house's pull quote ---------- */
+[data-theme="luxe"] .custom figure {
+  margin: 0;
+  padding-top: clamp(40px, 5vw, 72px);
+  border-top: 1px solid var(--line);
+}
+[data-theme="luxe"] .custom blockquote {
+  margin: 0;
+}
+[data-theme="luxe"] .custom blockquote p {
+  font: italic 400 clamp(2.1rem, 1.1rem + 4vw, 5rem) / 1.06 var(--font-display);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+[data-theme="luxe"] .custom blockquote p::before {
+  content: "\201C";
+  color: var(--accent-2);
+}
+[data-theme="luxe"] .custom blockquote p::after {
+  content: "\201D";
+  color: var(--accent-2);
+}
+[data-theme="luxe"] .custom figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  color: var(--accent);
+  font: 500 0.75rem/1 var(--font-body);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+[data-theme="luxe"] .custom figcaption::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: currentColor;
+}
+@media (min-width: 900px) {
+  [data-theme="luxe"] .custom blockquote,
+  [data-theme="luxe"] .custom figcaption {
+    margin-left: 8.333%;
+    max-width: 83.333%;
+  }
+  [data-theme="luxe"] .custom blockquote p {
+    text-indent: -0.42em;
+  }
+}
+
+/* ---------- steps and How to buy: numbered I, II, III in columns ruled in brass ---------- */
+[data-theme="luxe"] .step {
+  counter-increment: step;
+}
+[data-theme="luxe"] .step__n {
+  font-size: 0;
+  line-height: 1;
+  -webkit-text-stroke: 0;
+}
+[data-theme="luxe"] .step__n::before {
+  content: counter(step, upper-roman) ".";
+  content: counter(step, upper-roman) "." / "";
+  color: var(--accent);
+  font: italic 400 1.375rem/1 var(--font-display);
+}
+[data-theme="luxe"] .step:hover .step__n {
+  text-shadow: none;
+}
+[data-theme="luxe"] .steps--buy {
+  gap: 0;
+  border-top: 1px solid var(--accent-2);
+}
+[data-theme="luxe"] .steps--buy .step {
+  gap: 20px;
+  padding: 34px 32px 44px;
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+[data-theme="luxe"] .steps--buy .step:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+[data-theme="luxe"] .steps--buy .step__title {
+  font: 500 clamp(2.75rem, 2rem + 2.2vw, 4.25rem) / 1 var(--font-display);
+  letter-spacing: -0.01em;
+}
+[data-theme="luxe"] .steps--buy .step__text {
+  max-width: 34ch;
+  margin-top: 0;
+  color: var(--fg-2);
+}
+[data-theme="luxe"] .steps--buy .step__text strong {
+  color: var(--fg);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 2;
+}
+@media (max-width: 767.98px) {
+  [data-theme="luxe"] .steps--buy .step,
+  [data-theme="luxe"] .steps--buy .step:first-child {
+    padding: 28px 0 34px;
+    border-left: 0;
+  }
+  [data-theme="luxe"] .steps--buy .step + .step {
+    border-top: 1px solid var(--line);
+  }
+}
+[data-theme="luxe"] .how__cta {
+  padding: clamp(22px, 2.6vw, 34px);
+  border: 0;
+}
+
+/* ---------- tokenomics: a ledger, like the back of the box ---------- */
+[data-theme="luxe"] .tokenomics__facts {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  max-width: 880px;
+  border-top: 1px solid var(--fg);
+}
+[data-theme="luxe"] .fact {
+  grid-template-columns: 9rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  backdrop-filter: none;
+}
+[data-theme="luxe"] .fact:hover {
+  border-color: var(--line);
+  box-shadow: none;
+}
+[data-theme="luxe"] .fact dt {
+  color: var(--accent);
+  font: 500 0.6875rem/1.6 var(--font-body);
+  letter-spacing: 0.22em;
+}
+[data-theme="luxe"] .fact dd {
+  font: 400 1rem/1.5 var(--font-body);
+  letter-spacing: 0;
+}
+[data-theme="luxe"] .fact:first-child dd {
+  font: 400 1.0625rem/1.5 var(--font-mono);
+  letter-spacing: 0.01em;
+}
+@media (max-width: 479.98px) {
+  [data-theme="luxe"] .fact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}
+[data-theme="luxe"] .tokenomics__donut svg {
+  filter: none;
+}
+[data-theme="luxe"] .donut__seg {
+  filter: none;
+}
+[data-theme="luxe"] .tokenomics__cta {
+  margin-top: 36px;
+}
+
+/* ---------- chart: before launch, a forest plate with one green candle among hollow brass ones ---------- */
+[data-theme="luxe"] .chart-skeleton {
+  border: 0;
+}
+[data-theme="luxe"] .chart-skeleton::before {
+  background-image: linear-gradient(rgba(200, 169, 106, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 169, 106, 0.14) 1px, transparent 1px);
+  background-size: 20% 20%;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+[data-theme="luxe"] .chart-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+[data-theme="luxe"] .chart-skeleton__svg {
+  opacity: 0.4;
+}
+[data-theme="luxe"] .chart-skeleton__svg * {
+  vector-effect: non-scaling-stroke;
+}
+[data-theme="luxe"] .chart-skeleton__svg .down {
+  stroke: var(--accent-2);
+  fill: none;
+}
+[data-theme="luxe"] .chart-skeleton__overlay {
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--bg) 88%, transparent) 30%, transparent 72%);
+}
+[data-theme="luxe"] .chart-skeleton__icon {
+  background: none;
+  box-shadow: none;
+  color: var(--up);
+}
+[data-theme="luxe"] .chart-skeleton__title {
+  font-style: italic;
+  font-weight: 400;
+}
+[data-theme="luxe"] .chart-skeleton__text {
+  color: var(--fg-3);
+  font-size: 0.9375rem;
+}
+
+/* ---------- faq: ruled rows ---------- */
+[data-theme="luxe"] .faq__layout .sec__title {
+  font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3.5rem);
+}
+[data-theme="luxe"] .faq__list {
+  gap: 0;
+  border-top: 1px solid var(--accent-2);
+}
+[data-theme="luxe"] .faq__item,
+[data-theme="luxe"] .faq__item[open] {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+}
+[data-theme="luxe"] .faq__item summary {
+  padding: 22px 0;
+  font: 500 clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem) / 1.3 var(--font-display);
+}
+[data-theme="luxe"] .faq__icon {
+  border-radius: 0;
+  background: none;
+  color: var(--accent);
+}
+[data-theme="luxe"] .faq__a {
+  max-width: 62ch;
+  padding: 0 0 26px;
+}
+
+/* ---------- community, gallery, maker, roadmap: square corners, no tinted blobs ---------- */
+[data-theme="luxe"] .community__icon {
+  border: 1px solid var(--line-2);
+  border-radius: 0;
+  background: none;
+}
+[data-theme="luxe"] .maker__panel,
+[data-theme="luxe"] .stats__grid,
+[data-theme="luxe"] .roadmap__note,
+[data-theme="luxe"] .card__icon,
+[data-theme="luxe"] .card__tag {
+  border-radius: 0;
+}
+
+/* ---------- cta: a quiet ruled panel ---------- */
+[data-theme="luxe"] .cta__glow {
+  display: none;
+}
+[data-theme="luxe"] .cta__panel {
+  padding-block: clamp(48px, 7vw, 112px);
+  border-color: var(--line);
+  background: none;
+}
+[data-theme="luxe"] .cta__title {
+  font-size: clamp(2.75rem, 1.5rem + 4.6vw, 6.25rem);
+}
+
+/* ---------- footer: forest, with the wordmark large ---------- */
+[data-theme="luxe"] .footer {
+  margin-top: 0;
+  border-top: 0;
+}
+[data-theme="luxe"] .footer__logo {
+  font-size: clamp(2.25rem, 1.6rem + 2.6vw, 4.25rem);
+  letter-spacing: 0.3em;
+}
+[data-theme="luxe"] .footer__logo img {
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 0;
+}
+[data-theme="luxe"] .footer__nav a {
+  color: var(--fg);
+}
+[data-theme="luxe"] .footer__nav a:hover {
+  color: var(--accent);
+}

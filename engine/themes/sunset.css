@@ -1,0 +1,97 @@
+/* Sunset: synthwave. Magenta-to-gold sky, chrome headlines, a neon perspective grid. */
+[data-theme="sunset"] {
+  --bg: #12061f;
+  --bg-2: #1b0a2e;
+  --surface: rgba(255, 110, 210, 0.06);
+  --surface-2: rgba(255, 110, 210, 0.11);
+  --line: rgba(255, 150, 225, 0.16);
+  --line-2: rgba(255, 150, 225, 0.32);
+  --fg: #fff0fb;
+  --fg-2: #d9a9d3;
+  --fg-3: #9c6f9a;
+  --accent: #ff4fd8;
+  --accent-2: #ffc86b;
+  --accent-fg: #1a0526;
+  --up: #52ffc8;
+  --down: #ff5c7a;
+  --glow: rgba(255, 79, 216, 0.5);
+  --font-display: "Audiowide", "Arial Black", system-ui, sans-serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --display-weight: 400;
+  --display-tracking: -0.01em;
+  --display-leading: 0.98;
+  --display-case: uppercase;
+  --char-w: 0.86;
+  --display-scale: 0.86;
+  --radius: 18px;
+  --btn-bg: linear-gradient(180deg, #ffc86b, #ff4fd8);
+  --btn-glow: 0 0 34px -6px rgba(255, 79, 216, 0.7);
+  --card-bg: linear-gradient(180deg, rgba(255, 110, 210, 0.08), rgba(80, 30, 140, 0.12));
+  --marquee-bg: linear-gradient(90deg, #ffc86b, #ff4fd8, #8a5cff);
+  --marquee-fg: #1a0526;
+  --grain: 0.06;
+}
+[data-theme="sunset"] body {
+  background: linear-gradient(180deg, #12061f 0%, #2a0b3d 55%, #12061f 100%);
+  background-attachment: fixed;
+}
+[data-theme="sunset"] .hero__title .split-c,
+[data-theme="sunset"] .hero__title:not(.is-split),
+[data-theme="sunset"] .sec__title .split-w > span,
+[data-theme="sunset"] .sec__title:not(.is-split) {
+  background: linear-gradient(180deg, #ffffff 0%, #ffd6f3 45%, #ff4fd8 52%, #ffc86b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-theme="sunset"] .hero__title {
+  filter: drop-shadow(0 0 22px rgba(255, 79, 216, 0.55));
+}
+[data-theme="sunset"] [data-tone="invert"] {
+  --bg: #ffe8f7;
+  --fg: #1a0526;
+  --fg-2: #5a2a60;
+  --fg-3: #8a5a90;
+  --line: rgba(26, 5, 38, 0.14);
+  --surface: rgba(26, 5, 38, 0.04);
+  --surface-2: rgba(26, 5, 38, 0.08);
+  --card-bg: #ffffff;
+  --accent: #c40099;
+  --accent-fg: #ffffff;
+  --glow: rgba(196, 0, 153, 0.25);
+}
+[data-theme="sunset"] [data-tone="accent"] {
+  --bg: linear-gradient(120deg, #ffc86b, #ff4fd8);
+  --fg: #1a0526;
+  --fg-2: #3d0d3f;
+  --fg-3: #4a1446;
+  --line: rgba(26, 5, 38, 0.2);
+  --line-2: rgba(26, 5, 38, 0.35);
+  --surface: rgba(255, 255, 255, 0.22);
+  --surface-2: rgba(255, 255, 255, 0.32);
+  --accent: #1a0526;
+  --accent-fg: #ffc86b;
+  --btn-bg: #1a0526;
+  --btn-fg: #ffc86b;
+  --card-bg: rgba(255, 255, 255, 0.4);
+  --glow: rgba(26, 5, 38, 0.25);
+}
+
+/* Gradient headlines on toned sections: dusk ink on the light band, plain ink on the sunset band. */
+[data-theme="sunset"] [data-tone="invert"] .hero__title .split-c,
+[data-theme="sunset"] [data-tone="invert"] .hero__title:not(.is-split),
+[data-theme="sunset"] [data-tone="invert"] .sec__title .split-w > span,
+[data-theme="sunset"] [data-tone="invert"] .sec__title:not(.is-split) {
+  background-image: linear-gradient(180deg, #1a0526 0%, #5a1a60 45%, #c40099 52%, #a85400 100%);
+}
+[data-theme="sunset"] [data-tone="accent"] .hero__title .split-c,
+[data-theme="sunset"] [data-tone="accent"] .hero__title:not(.is-split),
+[data-theme="sunset"] [data-tone="accent"] .sec__title .split-w > span,
+[data-theme="sunset"] [data-tone="accent"] .sec__title:not(.is-split) {
+  background: none;
+  color: var(--fg);
+}
+[data-theme="sunset"] [data-tone] .hero__title {
+  filter: none;
+}
